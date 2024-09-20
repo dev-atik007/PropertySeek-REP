@@ -17,7 +17,8 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('auth.login');
+        $pageTitle = 'Login';
+        return view('templates.login', compact('pageTitle'));
     }
 
     /**
@@ -30,14 +31,10 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         $url = '';
-        if ($request->user()->role === 'admin') {
-            $url = 'admin/dashboard';
-        } elseif ($request->user()->role === 'agent') {
-            $url = 'agent/dashboard';
-        } elseif ($request->user()->role === 'user') {
-            $url = '/dashboard';
-        }
-
+       
+        $url = $request->user()->role == 'admin' ? 'admin/dashboard' :
+       ($request->user()->role === 'agent' ? 'agent/dashboard' : 'user/dashboard');
+        
         $notification = array(
             'message'   => 'Login has been Successfully',
             'alert-type' => 'success',

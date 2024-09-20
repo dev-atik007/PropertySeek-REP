@@ -11,7 +11,7 @@
     <meta name="keywords"
         content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-    <title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
+    <title>{{ $pageTitle . ' |'. ' Property-Seek' }}</title>
 
     @stack('style')
 
@@ -31,7 +31,8 @@
 
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('application/public/backend/assets/fonts/feather-font/css/iconfont.css') }}">
-    <link rel="stylesheet" href="{{ asset('application/public/backend/assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('application/public/backend/assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
     <!-- endinject -->
 
     <!-- Layout styles -->
@@ -39,18 +40,25 @@
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{ asset('application/public/backend/assets/images/favicon.png') }}" />
 
+     {{-- jQuery cdn --}}
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- Toaster message -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+    <!-- End Toaster message -->
+
 
     @stack('style')
-   
+
 
 </head>
 
 <body>
-    
+
 
     @yield('content')
 
-    
+
     <!-- core:js -->
     <script src="{{ asset('application/public/backend/assets/vendors/core/core.js') }}"></script>
     <!-- endinject -->
@@ -70,6 +78,31 @@
     <!-- End custom js for this page -->
 
     @stack('script')
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                    break;
+            }
+        @endif
+    </script>
 
 </body>
 

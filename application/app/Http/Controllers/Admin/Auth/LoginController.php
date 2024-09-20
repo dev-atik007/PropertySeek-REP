@@ -10,7 +10,8 @@ class LoginController extends Controller
 {
     public function showLoginForm()
     {
-        return view('admin.auth.login');
+        $pageTitle = 'Admin Login';
+        return view('admin.auth.login', compact('pageTitle'));
     }
 
 }

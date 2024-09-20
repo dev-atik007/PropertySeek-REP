@@ -14,18 +14,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+Route::namespace('Frontend')->group(function () {
+    Route::controller('SiteController')->group(function () {
+        Route::get('/', 'templates')->name('templates');
+    });
+
+    Route::controller('UserController')->prefix('user')->name('user.')->group(function () {
+        Route::get('dashboard', 'dashboard')->name('dashboard');
+        Route::get('logout', 'logout')->name('logout');
+        Route::get('settings', 'profile')->name('profile');
+        Route::post('settings-update', 'profileUpdate')->name('profile.update');
+        Route::get('security', 'security')->name('security');
+        Route::post('security-update', 'securityUpdate')->name('security.update');
+    });
 });
+
+
+
+
+
 
 
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
-
-
 
 
 
