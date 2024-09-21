@@ -11,7 +11,7 @@
     <meta name="keywords"
         content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-    <title>{{ $pageTitle . ' |'. ' Property-Seek' }}</title>
+    <title>{{ $pageTitle . ' |' . ' Property-Seek' }}</title>
 
     @stack('style')
 
@@ -35,17 +35,21 @@
         href="{{ asset('application/public/backend/assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
     <!-- endinject -->
 
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{{ asset('applicatio/public/backend/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.css') }}">
+    <!-- End plugin css for this page -->
+
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('application/public/backend/assets/css/demo2/style.css') }}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{ asset('application/public/backend/assets/images/favicon.png') }}" />
 
-     {{-- jQuery cdn --}}
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
+    
     <!-- Toaster message -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <!-- End Toaster message -->
+
+    
 
 
     @stack('style')
@@ -77,10 +81,29 @@
     <script src="{{ asset('application/public/backend/assets/js/dashboard-dark.js') }}"></script>
     <!-- End custom js for this page -->
 
+    <!-- Plugin js for this page -->
+    <script src="{{ asset('application/public/backend/assets/vendors/datatables.net/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('application/public/backend/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js') }}">
+    </script>
+    <!-- End plugin js for this page -->
+
+    {{-- jQuery cdn --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- Custom js for this page -->
+    <script src="{{ asset('application/public/backend/assets/js/data-table.js') }}"></script>
+    <!-- End custom js for this page -->
+
+     <!-- Sweet alert -->
+    <script src="{{ asset('application/public/backend/assets/js/code.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--End Sweet alert -->
+    <script src="{{ asset('application/public/backend/assets/js/validate.min.js') }}"></script>
+
+
     @stack('script')
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
     <script>
         @if (Session::has('message'))
             var type = "{{ Session::get('alert-type', 'info') }}"
