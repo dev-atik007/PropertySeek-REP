@@ -28,7 +28,13 @@
             <li class="nav-item">
                 <a href="{{ route('admin.index.amenities') }}" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
-                    <span class="link-title">amenities</span>
+                    <span class="link-title">Amenities</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.property.index') }}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title">Property</span>
                 </a>
             </li>
 

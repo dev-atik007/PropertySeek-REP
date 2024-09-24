@@ -49,7 +49,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <!-- End Toaster message -->
 
-    
 
 
     @stack('style')
@@ -99,7 +98,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!--End Sweet alert -->
     <script src="{{ asset('application/public/backend/assets/js/validate.min.js') }}"></script>
-
+  
 
     @stack('script')
 

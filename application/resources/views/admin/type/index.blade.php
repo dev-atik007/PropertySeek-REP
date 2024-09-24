@@ -27,8 +27,8 @@
                                         <td>{{ $item->type }}</td>
                                         <td>{{ $item->icon }}</td>
                                         <td>
-                                            <a href="{{ route('admin.edit.property.type', $item->id) }}" class="btn btn-inverse-info">Edit</a>
-                                            <a href="{{ route('admin.delete.property.type', $item->id) }}" id="delete" class="btn btn-inverse-danger">Delete</a>
+                                            <a href="{{ route('admin.edit.property.type', $item->id) }}" class="btn btn-inverse-info" title="Edit"><i data-feather="edit"></i></a>
+                                            <a href="{{ route('admin.delete.property.type', $item->id) }}" id="delete" class="btn btn-inverse-danger" title="Delete"><i data-feather="trash"></i></a>
                                         </td>
                                        
                                     </tr>

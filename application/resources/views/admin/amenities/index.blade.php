@@ -26,9 +26,9 @@
                                         <td>{{ $item->name }}</td>
                                         <td>
                                             <a href="{{ route('admin.edit.amenities', $item->id) }}"
-                                                class="btn btn-inverse-info">Edit</a>
+                                                class="btn btn-inverse-info" title="Edit"><i data-feather="edit"></i></a>
                                             <a href="{{ route('admin.delete.amenities', $item->id) }}" id="delete"
-                                                class="btn btn-inverse-danger">Delete</a>
+                                                class="btn btn-inverse-danger" title="Delete"><i data-feather="trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

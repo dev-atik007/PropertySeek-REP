@@ -23,7 +23,6 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::post('profile-update', 'profileUpdate')->name('profile.update');
         Route::get('password', 'password')->name('password');
         Route::post('password-update', 'passwordUpdate')->name('password.update');
-
     });
 
     Route::controller('PropertyTypeController')->group(function () {
@@ -33,7 +32,6 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('edit-proerty-type/{id}', 'editType')->name('edit.property.type');
         Route::post('update-proerty-type/{id}', 'updateType')->name('update.property.type');
         Route::get('delete-proerty-type/{id}', 'deleteType')->name('delete.property.type');
-
     });
 
     Route::controller('AmenitiesController')->group(function () {
@@ -43,5 +41,24 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('edit-amenities/{id}', 'editAminites')->name('edit.amenities');
         Route::post('update-amenities/{id}', 'updateAminites')->name('update.amenities');
         Route::get('delete-amenities/{id}', 'deleteAminites')->name('delete.amenities');
+    });
+
+    Route::controller('PropertyController')->group(function () {
+        Route::get('property-index', 'propertyIndex')->name('property.index');
+        Route::get('property-create', 'propertyCreate')->name('property.create');
+        Route::post('property-store', 'propertyStore')->name('property.store');
+        Route::get('property-view/{id}', 'propertyView')->name('property.view');
+        Route::get('property-details/{id}', 'propertyDetails')->name('property.details');
+        Route::post('property-update', 'propertyUpdate')->name('property.update');
+        Route::get('property-delete/{id}', 'propertyDelete')->name('property.delete');
+
+        Route::post('property-update-thumbnail', 'updateThumbnail')->name('property.update.thumbnail');
+        Route::post('property-update-multi-image', 'updateMultiImage')->name('property.update.multi.image');
+        Route::get('property-update-multi-delete/{id}', 'multiImageDelete')->name('property.update.multi.delete');
+        Route::post('property-store-new-multi-image', 'storeNewMultiImage')->name('property.store.new.multi.image');
+        Route::post('property-update-facilites', 'updateFacilites')->name('property.update.facilites');
+
+        Route::post('property-inactive', 'inactiveProperty')->name('property.inactive');
+        Route::post('property-active', 'activeProperty')->name('property.active');
     });
 });
