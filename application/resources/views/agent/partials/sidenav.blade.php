@@ -1,7 +1,13 @@
 <!-- partial:partials/_sidebar.html -->
+{{-- @php
+    $id = Auth::user()->id;
+    $agentId = App\Models\User::find($id);
+    $abc = $agentId->status;
+@endphp --}}
 <nav class="sidebar">
+   
     <div class="sidebar-header">
-        <a href="{{ route('admin.dashboard') }}" class="sidebar-brand">
+        <a href="{{ route('agent.dashboard') }}" class="sidebar-brand">
             Property-<span>Seek</span>
         </a>
         <div class="sidebar-toggler not-active">
@@ -10,15 +16,19 @@
             <span></span>
         </div>
     </div>
+
     <div class="sidebar-body">
         <ul class="nav">
             <li class="nav-item nav-category">Main</li>
             <li class="nav-item">
-                <a href="{{ route('admin.dashboard') }}" class="nav-link">
+                <a href="{{ route('agent.dashboard') }}" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
                     <span class="link-title">Dashboard</span>
                 </a>
             </li>
+@if ($status === '1')
+    
+
             <li class="nav-item nav-category">web apps</li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false"
@@ -320,6 +330,7 @@
                     </ul>
                 </div>
             </li>
+            @endif
             <li class="nav-item nav-category">Docs</li>
             <li class="nav-item">
                 <a href="https://www.nobleui.com/html/documentation/docs.html" target="_blank" class="nav-link">
@@ -327,8 +338,11 @@
                     <span class="link-title">Documentation</span>
                 </a>
             </li>
+            
         </ul>
     </div>
+
+  
 </nav>
 <nav class="settings-sidebar">
     <div class="sidebar-body">

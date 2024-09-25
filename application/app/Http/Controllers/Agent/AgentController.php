@@ -16,7 +16,12 @@ class AgentController extends Controller
     public function dashboard()
     {
         $pageTitle = 'Dashboard';
-        return view('agent.dashboard', compact('pageTitle'));
+
+        $id = Auth::user()->id;
+        $agentCheck = User::find($id);
+        $status = $agentCheck->status;
+
+        return view('agent.dashboard', compact('pageTitle', 'status'));
     }
 
     public function login()

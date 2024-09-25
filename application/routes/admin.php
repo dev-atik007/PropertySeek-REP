@@ -61,4 +61,15 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::post('property-inactive', 'inactiveProperty')->name('property.inactive');
         Route::post('property-active', 'activeProperty')->name('property.active');
     });
+
+    Route::controller('ManageAgentControlller')->group(function () {
+        Route::get('all-agent', 'index')->name('all.agent');
+        Route::get('add-agent', 'addAgent')->name('add.agent');
+        Route::post('store-agent', 'storeAgent')->name('store.agent');
+        Route::get('edit-agent/{id}', 'editAgent')->name('edit.agent');
+        Route::post('update-agent/{id}', 'updateAgent')->name('update.agent');
+        Route::get('delete-agent/{id}', 'deleteAgent')->name('delete.agent');
+
+        Route::get('agent-change-status', 'changestatus')->name('agent.change.status');
+    });
 });

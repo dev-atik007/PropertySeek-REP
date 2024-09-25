@@ -1,8 +1,8 @@
 <!-- partial:partials/_sidebar.html -->
 <nav class="sidebar">
     <div class="sidebar-header">
-        <a href="#" class="sidebar-brand">
-            Noble<span>UI</span>
+        <a href="{{ route('admin.dashboard') }}" class="sidebar-brand">
+            Property-<span>Seek</span>
         </a>
         <div class="sidebar-toggler not-active">
             <span></span>
@@ -38,25 +38,48 @@
                 </a>
             </li>
 
-            <li class="nav-item nav-category">Real Estate</li>
+            <li class="nav-item nav-category">Users All Function</li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false"
                     aria-controls="emails">
-                    <i class="link-icon" data-feather="mail"></i>
-                    <span class="link-title">Abc</span>
+                    <i class="link-icon" data-feather="user"></i>
+                    <span class="link-title">Manage Agent</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="emails">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">All Type</a>
+                            <a href="{{ route('admin.all.agent') }}" class="nav-link">All Agent</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/email/read.html" class="nav-link">Add Type</a>
+                            <a href="{{ route('admin.add.agent') }}" class="nav-link">Add Agent</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/email/compose.html" class="nav-link">Compose</a>
+                            <a href="#" class="nav-link">Active Agent</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="pages/email/read.html" class="nav-link">InActive Agents</a>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#agents" role="button" aria-expanded="false"
+                    aria-controls="agents">
+                    <i class="link-icon" data-feather="user"></i>
+                    <span class="link-title">Manage Users</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="agents">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Active Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/email/read.html" class="nav-link">All Users</a>
+                        </li>
+                       
                     </ul>
                 </div>
             </li>
